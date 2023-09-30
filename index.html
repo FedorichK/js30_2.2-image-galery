@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Photo gallery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Search photos</h1>
+    </header>
+    <main>
+        <form id="search-form">
+            <input type="search" id="search" placeholder="Enter your search term">
+            <button type="submit">Search</button>
+        </form>
+        <div id="photo-gallery"></div>
+    </main>
+    <footer>
+        <p>© 2023, RS-School</p>
+        <a href="https://github.com/fedorichk">GitHub</a>
+    </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
