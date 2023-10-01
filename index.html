@@ -12,14 +12,16 @@
     </header>
     <main>
         <form id="search-form">
-            <input type="search" id="search" placeholder="Enter your search term">
+            <input type="search" id="search" placeholder="Enter your search term" autocomplete="off">
             <button type="submit">Search</button>
         </form>
         <div id="photo-gallery"></div>
     </main>
-    <footer>
-        <p>© 2023, RS-School</p>
-        <a href="https://github.com/fedorichk">GitHub</a>
+    <footer class="footer">
+        <div class="footer-container">
+          <div>2023 <a href="https://github.com/FedorichK" target="_blank" class="github nav-link">FedorichK</a></div>
+          <a href="https://rs.school/js-en/" target="_blank" class="rss"></a>
+        </div>
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>

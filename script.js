@@ -1,14 +1,13 @@
-
-// Функция для получения фотографий
+// Get photos
 async function getPhotos(query) {
     try {
         const response = await axios.get('https://api.unsplash.com/search/photos', {
             params: {
                 query: query,
-                per_page: 10
+                per_page: 6
             },
             headers: {
-                Authorization: 'Client-ID xsW20ax5ZKdLXKpRtGtru3fFcDOA-llQF6QeadWA1MI' // Замените YOUR_ACCESS_KEY на ваш ключ доступа Unsplash API
+                Authorization: 'Client-ID xsW20ax5ZKdLXKpRtGtru3fFcDOA-llQF6QeadWA1MI' // My Unsplash API key
             }
         });
 
@@ -18,21 +17,32 @@ async function getPhotos(query) {
     }
 }
 
-// Функция для отображения фотографий
+// Display photos
 function displayPhotos(photos) {
+    // Clear the gallery
+    const gallery = document.querySelector('#photo-gallery');
+    gallery.innerHTML = '';
+
+    // Display new photos
     photos.forEach(photo => {
         const img = document.createElement('img');
         img.src = photo.urls.small;
-        document.querySelector('#photo-gallery').appendChild(img);;
+        gallery.appendChild(img);
     });
 }
 
-// Функция для обработки поискового запроса
+// Search
 function handleSearch(event) {
     event.preventDefault();
     const query = event.target.elements.search.value;
     getPhotos(query).then(displayPhotos);
 }
 
-// Добавление обработчика событий к форме поиска
+// Adding an event handler to the search form
 document.querySelector('#search-form').addEventListener('submit', handleSearch);
+
+// Load initial photos
+getPhotos('snow').then(displayPhotos);
+
+// Focus on the search input field
+document.querySelector('#search').focus();
